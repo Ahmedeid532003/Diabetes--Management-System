@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)file:///C:/Users/DELL/Downloads/task%20(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Symptoms and Medication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #3498db, #ffffff); /* Gradient from blue to white */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .intro-message {
+            background-color: #3498db; /* Blue color for the background */
+            color: #fff; /* White color for the text */
+            padding: 20px;
+            text-align: center;
+            width: 70%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 70%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: medium; /* Set font weight to medium */
+        }
+
+        input, button {
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input:hover, button:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* Set background color for Yes and No buttons */
+        button.yes, button.no {
+            background-color: #3498db;
+            color: #fff;
+            margin-right: 5px; /* Adjusted margin between buttons */
+            margin-left: 5px;  /* Adjusted margin between buttons */
+        }
+    </style>
+</head>
+<body>
+
+<div class="intro-message">
+    <h1>Welcome to our Diabetes Symptoms Survey</h1>
+    <p>Please answer the following questions to help us understand your situation better.</p>
+</div>
+
+<div class="container">
+    <h1>What symptoms are you feeling?</h1>
+    <input type="text" id="symptomInput" placeholder="Type your symptoms here...">
+    <button class="submit" onclick="submitSymptoms()">Submit</button>
+</div>
+
+<div class="container">
+    <h1>Have you taken any type of medication related to diabetes, such as pills or insulin injections?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="selectMedication(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="selectMedication(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Because diabetes is a hereditary disease, is there anyone in the family suffering from diabetes, especially the father and mother?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="familyHistory(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="familyHistory(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>How many times do you get up to go to the bathroom?</h1>
+    <input type="number" id="bathroomInput" placeholder="Enter a number (limit: 25)" min="1" max="25">
+</div>
+
+<div class="container">
+    <h1>Do you always feel stressed and have a lack of concentration?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="familyHistory(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="familyHistory(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Have you ever had a wound that did not heal quickly enough?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="familyHistory(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="familyHistory(&#39;no&#39;)">No</button>
+    </div>    
+</div>
+
+<div class="container">
+    <h1>What is your lifestyle with sports or diet?</h1>
+    <input type="text" id="symptomInput" placeholder="Type your symptoms here...">
+    <button class="submit" onclick="submitSymptoms()">Submit</button>
+</div>
+
+<div class="container">
+    <h1>Do you suffer from sudden high or low blood sugar?</h1>	
+    
+    <div class="button-container">
+        <button class="yes" onclick="familyHistory(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="familyHistory(&#39;no&#39;)">No</button>
+    </div>    
+</div>
+<div class="container">
+    <h1>Did you feel thin before getting any diabetes treatment?</h1>
+    
+    
+    <div class="button-container">
+        <button class="Yes" onclick="familyHistory(&#39;Yes&#39;)">Yes</button>
+        <button class="No" onclick="familyHistory(&#39;No&#39;)">No</button>
+    </div>    
+</div>
+
+<div class="container">
+    <h1>How long have you been diabetic?</h1>
+    <div class="button-container">
+        <button class="A long time ago" onclick="familyHistory(&#39;A long time ago&#39;)">A long time ago</button>
+        <button class="Not long ago" onclick="familyHistory(&#39;Not long ago&#39;)">Not long ago</button>
+    </div>    
+</div>
+
+<div class="container">
+    <h1>Do you follow up with your doctor regularly?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="selectMedication(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="selectMedication(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+
+<div class="container">
+    <h1>Do you feel constantly thirsty?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="selectMedication(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="selectMedication(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+
+<div class="container">
+    <h1>Do you suffer from high blood pressure or cholesterol?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="selectMedication(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="selectMedication(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Do you know what type of diabetes you have?</h1>
+    <div class="button-container">
+        <button class="Type1" onclick="selectMedication(&#39;Type1&#39;)">Type1</button>
+        <button class="Type2" onclick="selectMedication(&#39;Type2&#39;)">Type2</button>
+        <button class="Gestational Diabetes" onclick="selectMedication(&#39;Gestational Diabetes&#39;)">Gestational Diabetes</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Do you feel dry mouth?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="selectMedication(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="selectMedication(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Do you feel not clarity of vision?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="selectMedication(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="selectMedication(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Have you ever had a fainting episode?</h1>
+    <div class="button-container">
+        <button class="yes" onclick="selectMedication(&#39;yes&#39;)">Yes</button>
+        <button class="no" onclick="selectMedication(&#39;no&#39;)">No</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>What type of analysis do you perform?</h1>
+    <div class="button-container">
+        <button class="Cumulative" onclick="selectMedication(&#39;Cumulative&#39;)">Cumulative</button>
+        <button class="Random" onclick="selectMedication(&#39;Random&#39;)">Random</button>
+        <button class="Fasting" onclick="selectMedication(&#39;Fasting&#39;)">Fasting</button>
+    </div>
+</div>
+
+
+
+
+<script>
+    function selectMedication(choice) {
+        alert('You selected: ' + choice);
+        // You can add further logic here, such as sending the selected choice to a server or performing other actions.
+    }
+
+    function familyHistory(choice) {
+        alert('You selected: ' + choice);
+        // You can add further logic here, such as sending the selected choice to a server or performing other actions.
+    }
+</script>
+
+<div class="form-submit-btn">
+    <input type="submit" value="Show Result">
+</div>
+
+</body></html>

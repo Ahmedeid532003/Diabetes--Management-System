@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Responsive Registration Form</title>
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image:linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    width: 100%;
+    max-width: 650px;
+    background: rgb(224, 223, 223);
+    padding: 28px;
+    margin: 0 28px;
+    border-radius: 0;
+}
+
+.form-title{
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 6px;
+    color: rgba(0,0,50,0.8);
+    text-shadow: none;
+    border-bottom: solid 5px rgba(0,0,50,0.8);
+}
+
+.main-user-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.user-input-box:nth-child(2n){
+    justify-content: end;
+}
+
+.user-input-box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.user-input-box label{
+    width: 95%;
+    color: rgba(0,0,50,0.8);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.user-input-box input{
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    background-color: #bdbdbd;
+    border: none;
+    border-radius: 0;
+}
+
+.gender-title, .pregnant-title{
+    color:rgba(0,0,50,0.8);
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+  
+}
+
+.gender-category, .pregnant-category{
+    margin: 15px 0;
+    color: rgb(0, 0, 0);
+}
+
+.gender-category label, .pregnant-category label{
+    padding: 0 20px 0 5px;
+}
+
+.gender-category label,
+.gender-category input,
+.pregnant-category label,
+.pregnant-category input,
+.form-submit-btn input{
+    cursor: pointer;
+}
+
+.form-submit-btn{
+    margin-top: 40px;
+}
+
+.form-submit-btn input{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border:none;
+    border-radius: 3px;
+    color: rgb(209, 209, 209);
+    background: rgba(0,0,50,0.8);
+    transition: all 0.5s;
+}
+
+.form-submit-btn input:hover{
+    background: #999;
+    color: rgba(0,0,50,0.8);
+}
+
+
+
+
+
+    </style>
+
+    <div class="container">
+      <h1 class="form-title">Diabetes Patients Form</h1>
+      <form action="{% url 'Data' %}" method="post"> 
+        {% csrf_token %}
+        <div class="main-user-info">
+          <div class="user-input-box">
+            <label for="fullName">Full Name</label>
+            <input type="text"
+                    id="fullName"
+                    name="fullName"
+                    required
+                    placeholder="Enter Full Name"/>
+          </div>
+          <div class="user-input-box">
+            <label for="status">Type</label>
+            <input type="text"
+                    id="Type"
+                    name="Type"
+                    required
+                    placeholder="Enter Type (Type1, Type2, Gestational)"/>
+          </div>
+          <div class="user-input-box">
+            <label for="age">Age</label>
+            <input type="number"
+                    id="age"
+                    name="age"
+                    required
+                    placeholder="Enter Your Age"/>
+          </div>
+          <div class="user-input-box">
+            <label for="HbA1c">HbA1c</label>
+            <input type="number"
+                    id="HbA1c"
+                    name="HbA1c"
+                    required
+                    placeholder="Enter HbA1c (Fasting Blood sugar test)"/>
+          </div>
+          <div class="user-input-box">
+            <label for="Weight">Weight</label>
+            <input type="number"
+                    id="Weight"
+                    name="Weight"
+                    required
+                    placeholder="Enter Weight"/>
+          </div>
+          <div class="user-input-box">
+            <label for="Height">Height</label>
+            <input type="number"
+                    id="Height"
+                    name="Height"
+                    placeholder="Enter Height"/>
+          </div>
+          <div class="user-input-box">
+            <label for="Height">Blood Pressure (Optional)*</label>
+            <input type="number"
+                    id="Pressure"
+                    name="Pressure"
+                    placeholder="Enter Blood Pressure"/>
+          </div>
+          <div class="user-input-box">
+            <label for="Cholesterol">Cholesterol (Optional)*</label>
+            <input type="number"
+                    id="Cholesterol"
+                    name="Cholesterol"
+                    placeholder="Enter Cholesterol"/>
+          </div>
+        </div>
+        <div class="gender-details-box">
+          <span class="gender-title">Gender</span>
+          <div class="gender-category">
+            <input type="radio" name="gender" id="male" required>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female">
+            <label for="female">Female</label>
+          </div>
+        <div class="pregnant-details-box">
+          <span class="pregnant-title">Are you a pregnant? (for women)*</span>
+          <div class="pregnant-category">
+            <input type="radio" name="pregnant" id="Yes" required>
+            <label for="Yes">Yes</label>
+            <input type="radio" name="pregnant" id="No">
+            <label for="No">No</label>
+          </div>
+        </div>
+        <div class="form-submit-btnn">
+          <button type="submit">Continuation</button>
+          <a class="option"  href="{% url 'Survey' %}">continuation</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
